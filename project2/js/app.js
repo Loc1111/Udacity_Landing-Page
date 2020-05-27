@@ -1,16 +1,15 @@
-// Build a global variable 
-const navbarMenu = document.getElementById('navbar_list');
-const sections = document.querySelectorAll('section');
+const navbarMenu = document.getElementById("navbar__list");
+const sections = document.querySelectorAll("section");
 
 function createNav(){
-  for( var i = 0; i < sections.length; i++){
-    let item = document.createElement('LI');
-    item.className = sections[i].getAttribute('navbar_menu li');
-    item.title = sections[i].getAttribute('data-nav');
-    item.textContent = sections[i].innerText;
+  for (let section of sections){
+    let item = document.createElement("LI");
+    item.className = section.getAttribute("navbar__menu li");
+    item.title = section.getAttribute("data-nav");
+    item.textContent = section.textContent;
     navbarMenu.appendChild(item);
   };
+  document.body.appendChild(navbarMenu);
 }
 createNav();
-
 
