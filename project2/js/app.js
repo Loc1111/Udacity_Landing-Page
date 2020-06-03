@@ -35,7 +35,7 @@ createNav();
 function makeActive(){
   for (const section of sections){
     const box = section.getBoundingClientRect();
-    const navLink = document.querySelector(`a[hef="#${section.getAttribute("id")}"]`);
+    const navLink = document.querySelector(`a[href="#${section.getAttribute('id')}"]`);
     if(box.top <= 150 && box.bottom >= 150){
       section.classList.add('your-active-class');
       navLink.classList.add('active');
