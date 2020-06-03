@@ -32,14 +32,17 @@ function createNav(){
 createNav();
 
 // make section active
-fucntion makeActive(){
+function makeActive(){
   for (const section of sections){
     const box = section.getBoundingClientRect();
-    if(box.top <= 150 && box.bottom => 150){
+    const navLink = document.querySelector(`a[hef="#${section.getAttribute("id")}"]`);
+    if(box.top <= 150 && box.bottom >= 150){
       section.classList.add('your-active-class');
+      navLink.classList.add('active');
       section.style.cssText = 'background-color: green';
     }else{
       section.classList.remove('your-active-class');
+      navLink.classList.remove('active');
       section.style.cssText = 'background-color: blue';
     }
   }
