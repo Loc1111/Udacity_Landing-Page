@@ -33,7 +33,7 @@ createNav();
 
 // make section active
 function makeActive(){
-  let navLinks = document.getElementById('navbar_list');
+  let navLinks = document.getElementById('navbar__list');
   
   for (let i = 0; i < sections.length; i++){
     let box = sections[i].getBoundingClientRect();
