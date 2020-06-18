@@ -33,23 +33,20 @@ createNav();
 
 // make section active
 function makeActive(){
-  let navLinks = document.getElementById('navbar__list');
-  
-  for (let i = 0; i < sections.length; i++){
-    let box = sections[i].getBoundingClientRect();
-    
+  for (const section of sections) {
+    const box = section.getBoundingClientRect();
     if(box.top <= 150 && box.bottom >= 150){
-      sections[i].classList.add('your-active-class');
-      navLinks[i].classList.add('active');
-      sections[i].style.cssText = 'background-color: green';
+      const id = section.getAttribute("id");
+      document.querySelector(`.${id}`).classList.add("active");      
+      section.classList.add('your-active-class');      
     }else{
-      sections[i].classList.remove('your-active-class');
-      navLinks[i].classList.remove('active');
-      sections[i].style.cssText = 'background-color: blue';
+      const id = section.getAttribute("id");
+      document.querySelector(`.${id}`).classList.remove('active');
+      section.classList.remove('your-active-class');      
     }
   }
 }
 
-document.addEventListener('scroll', function(){
+document.addEventListener("scroll", function(){
   makeActive()
 });
