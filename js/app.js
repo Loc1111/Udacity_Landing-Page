@@ -36,14 +36,12 @@ function makeActive(){
   for (const section of sections) {
     const box = section.getBoundingClientRect();
     if(box.top <= 150 && box.bottom >= 150){
-      const section = document.createElement(section)
       const id = section.getAttribute('id');
-      document.querySelector(`.${id}`).classList.add('active');      
+      document.querySelector(`#${id}`).classList.add('active');      
       section.classList.add('your-active-class');      
     }else{
-      const section = document.createElement(section)
       const id = section.getAttribute('id');
-      document.querySelector(`.${id}`).classList.remove('active');
+      document.querySelector(`#${id}`).classList.remove('active');
       section.classList.remove('your-active-class');      
     }
   }
@@ -52,4 +50,3 @@ function makeActive(){
 document.addEventListener('scroll', function(){
   makeActive()
 });
-
