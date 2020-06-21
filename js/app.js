@@ -21,11 +21,17 @@ const sections = document.querySelectorAll('section');
 
 //build a nav
 function createNav(){
+  //this loop iterates through sections
   for (let item of sections){
+    //creating li  
     let section = document.createElement('li');
+    //assign class to section
     section.className = 'menu__link';
+    //id. is used to get id of section
     section.dataset.nav = item.id;
+    //get content of section
     section.innerText = item.dataset.nav;
+    //creating nav bar
     navbarMenu.appendChild(section);
   };  
 };
@@ -33,16 +39,16 @@ createNav();
 
 // make section active
 function makeActive(){
-  for (const section of sections) {
+  for (let section of sections) {
     const box = section.getBoundingClientRect();
     if(box.top <= 150 && box.bottom >= 150){
-      const id = section.getAttribute('id');
-      document.querySelector(`#${id}`).classList.add('active');      
-      section.classList.add('your-active-class');      
+      const nav_item = document.querySelector(`.${section.id}`);
+      section.setAttribute('class', 'your-active-class');
+      nav_item.classList.add('active');
     }else{
-      const id = section.getAttribute('id');
-      document.querySelector(`#${id}`).classList.remove('active');
-      section.classList.remove('your-active-class');      
+      const nav_item = document.querySelector(`.${section.id}`);
+      section.classList.remove('your-active-class');
+      section.classList.remove('active');
     }
   }
 }
