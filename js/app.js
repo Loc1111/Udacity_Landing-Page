@@ -33,8 +33,8 @@ function createNav(){
     section.innerText = item.dataset.nav;
     //creating nav bar
     navbarMenu.appendChild(section);
-  };  
-};
+  }  
+}
 createNav();
 
 // make section active
@@ -42,11 +42,11 @@ function makeActive(){
   for (let section of sections) {
     const box = section.getBoundingClientRect();
     if(box.top <= 150 && box.bottom >= 150){
-      const nav_item = document.querySelector(`.${section.id}`);
-      section.setAttribute('class', 'your-active-class');
+      const nav_item = document.querySelectorAll('.menu__link');
+      section.classList.add('your-active-class');
       nav_item.classList.add('active');
     }else{
-      const nav_item = document.querySelector(`.${section.id}`);
+      const nav_item = document.querySelectorAll('.menu__link');
       section.classList.remove('your-active-class');
       section.classList.remove('active');
     }
