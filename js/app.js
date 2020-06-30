@@ -42,13 +42,13 @@ function makeActive(){
   for (let section of sections) {
     const box = section.getBoundingClientRect();
     if(box.top <= 150 && box.bottom >= 150){
-      const nav_item = document.querySelectorAll('.menu__link');
-      section.classList.add('your-active-class');
+      const nav_item = document.querySelector('.menu__link');
+      nav_item.classList.add('your-active-class');
       nav_item.classList.add('active');
     }else{
-      const nav_item = document.querySelectorAll('.menu__link');
-      section.classList.remove('your-active-class');
-      section.classList.remove('active');
+      const nav_item = document.querySelector('.menu__link');
+      nav_item.classList.remove('your-active-class');
+      nav_item.classList.remove('active');
     }
   }
 }
