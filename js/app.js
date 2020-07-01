@@ -37,22 +37,21 @@ function createNav(){
 }
 createNav();
 
-// make section active
-function makeActive(){
-  for (let section of sections) {
-    const box = section.getBoundingClientRect();
-    if(box.top <= 150 && box.bottom >= 150){
-      const nav_item = document.querySelector('.menu__link');
-      nav_item.classList.add('your-active-class');
-      nav_item.classList.add('active');
-    }else{
-      const nav_item = document.querySelector('.menu__link');
-      nav_item.classList.remove('your-active-class');
-      nav_item.classList.remove('active');
-    }
-  }
-}
+
+const makeActive = () => {
+  sections.forEach(section => {
+      const elementOffset =  section.getBoundingClientRect().top
+      section.classList.remove('your-active-class');
+      section.classList.remove('active');
+      inviewport = () => elementOffset < 150 && elementOffset >= -150;
+      if(elementOffset < 150 && elementOffset >= -150){
+        section.classList.add('your-active-class');
+        section.classList.add('active');
+      }
+      console.log(section.getBoundingClientRect());
+  });
+};
 
 document.addEventListener('scroll', function(){
   makeActive()
-});
+  });
