@@ -17,26 +17,22 @@
 //select a ul tag in nav
 const navbarMenu = document.getElementById('navbar__list');
 //select sections
-const sections = document.querySelectorAll('section');
+const sections = document.getElementsByTagName('section');
 
-//build a nav
-function createNav(){
+  //build a nav
   //this loop iterates through sections
-  for (let item of sections){
-    //creating li  
-    let section = document.createElement('li');
-    //assign class to section
-    section.className = 'menu__link';
-    //id. is used to get id of section
-    section.dataset.nav = item.id;
+  for (section of sections){
+    //create li  
+    let list = document.createElement('li');
+    //get id for list
+    list.id = section.id;
+    //add class to section
+    list.className.add('menu__link');    
     //get content of section
-    section.innerText = item.dataset.nav;
+    list.innerText = section.dataset.nav;
     //creating nav bar
-    navbarMenu.appendChild(section);
+    navbarMenu.appendChild(list);
   }  
-}
-createNav();
-
 // make section active
 function makeActive(){
   for (const section of sections) {
