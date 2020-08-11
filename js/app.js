@@ -35,10 +35,10 @@ const sections = document.getElementsByTagName('section');
   }  
 // make section active
 function makeActive(){
-  for (const section of sections) {
+  for (section of sections) {
     const box = section.getBoundingClientRect();
     if(box.top <= 150 && box.bottom >= 150){
-      const nav_item = document.querySelector('.menu__link');
+      const nav_item = document.querySelector('.navbar__menu');
       nav_item.classList.add('your-active-class');
       nav_item.classList.add('active');
     }else{
